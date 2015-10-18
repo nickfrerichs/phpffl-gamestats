@@ -53,6 +53,9 @@ def one_game(game):
         StatsFromPlayers(game.players, gamedict)
         StatsFromPlays(game.drives.plays(), gamedict)
 
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+
         outfile = output_dir+"/"+gamedict["game"]["ID"]
         text = print_game(gamedict)
         with open(outfile, "w") as f:
