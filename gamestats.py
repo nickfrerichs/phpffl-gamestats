@@ -195,7 +195,8 @@ def FillGameInfo(game, gamedict):
   gamedict["game"]["homescore"] = game.score_home
   gamedict["game"]["awayscore"] = game.score_away
   gamedict["game"]["date"] = game.schedule
-  gamedict["game"]["ID"] = str(game.schedule["year"]).strip()+str(game.schedule["month"]).strip().zfill(2)+str(game.schedule["day"]).strip().zfill(2)+"_"+game.away+"@"+game.home
+  year = str(game.schedule["eid"])[0:4]
+  gamedict["game"]["ID"] = year+str(game.schedule["month"]).strip().zfill(2)+str(game.schedule["day"]).strip().zfill(2)+"_"+game.away+"@"+game.home
   gamedict["game"]["away"] = game.away
   gamedict["game"]["home"] = game.home
   gamedict["game"]["season"] = game.season()
